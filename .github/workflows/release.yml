@@ -24,11 +24,8 @@ jobs:
       - name: Install dependencies
         run: flutter pub get
 
-      - name: Build APK (arm64)
-        run: flutter build apk --release --target-platform android-arm64
-
       - name: Build APK (split per ABI)
-        run: flutter build apk --release --split-per-abi
+        run: flutter build apk --release --split-per-abi --dart-define=GEMINI_API_KEY=${{ secrets.GEMINI_API_KEY }}
 
       - name: Extract version from tag
         id: version
