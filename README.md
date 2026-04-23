@@ -70,7 +70,3 @@ flutter run
 ```bash
 flutter build apk --release --split-per-abi
 ```
-
-## 致谢
-
-设计灵感来自 "Luminous Sanctuary" 情侣共享空间概念。
