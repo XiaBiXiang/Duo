@@ -31,6 +31,13 @@ jobs:
         id: version
         run: echo "VERSION=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
 
+      - name: Rename APKs
+        run: |
+          VERSION=${{ steps.version.outputs.VERSION }}
+          cd build/app/outputs/flutter-apk
+          mv app-arm64-v8a-release.apk "Duo-${VERSION}-arm64-v8a-release.apk"
+          mv app-armeabi-v7a-release.apk "Duo-${VERSION}-armeabi-v7a-release.apk"
+
       - name: Create Release
         uses: softprops/action-gh-release@v2
         with:
@@ -41,10 +48,10 @@ jobs:
             - 请查看下方提交记录
 
             ### 下载
-            - `app-arm64-v8a-release.apk` — 适用于大多数现代 Android 手机
-            - `app-armeabi-v7a-release.apk` — 适用于旧款 Android 手机
+            - `Duo-${{ steps.version.outputs.VERSION }}-arm64-v8a-release.apk` — 适用于大多数现代 Android 手机
+            - `Duo-${{ steps.version.outputs.VERSION }}-armeabi-v7a-release.apk` — 适用于旧款 Android 手机
           files: |
-            build/app/outputs/flutter-apk/app-arm64-v8a-release.apk
-            build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk
+            build/app/outputs/flutter-apk/Duo-${{ steps.version.outputs.VERSION }}-arm64-v8a-release.apk
+            build/app/outputs/flutter-apk/Duo-${{ steps.version.outputs.VERSION }}-armeabi-v7a-release.apk
           draft: false
           prerelease: false
