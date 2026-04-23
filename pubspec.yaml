@@ -1,0 +1,54 @@
+name: duo
+description: A couple's bucket list app for recording memories together.
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.6.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # State management
+  flutter_riverpod: ^2.6.1
+
+  # Routing
+  go_router: ^14.8.1
+
+  # Backend
+  appwrite: ^23.1.0
+
+  # AI
+  google_generative_ai: ^0.4.6
+
+  # Image handling
+  image_picker: ^1.1.2
+  cached_network_image: ^3.4.1
+
+  # Storage
+  path_provider: ^2.1.5
+  shared_preferences: ^2.5.3
+
+  # Utils
+  intl: ^0.20.2
+  uuid: ^4.5.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+flutter:
+  uses-material-design: true
+
+  fonts:
+    - family: Inter
+      fonts:
+        - asset: fonts/Inter-Regular.ttf
+        - asset: fonts/Inter-Medium.ttf
+          weight: 500
+        - asset: fonts/Inter-SemiBold.ttf
+          weight: 600
